@@ -1,0 +1,36 @@
+# Ignore Python virtual environments
+.venv/
+
+# Ignore environment variable files
+.env
+
+# Ignore JetBrains IDE files
+.idea/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Other common Python ignores
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# VS Code settings (optional)
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Alembic migration cache
+migrations/__pycache__/
+app/db/migrations/__pycache__/
+
+# Test and coverage files
+.coverage
+htmlcov/
+
+# Log files
+*.log
+
