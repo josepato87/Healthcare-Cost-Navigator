@@ -6,7 +6,7 @@ Base = declarative_base()
 class Provider(Base):
     __tablename__ = "providers"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    provider_id = Column(String, unique=True, index=True)
+    provider_id = Column(String, unique=True, index=True)  # Changed to String
     name = Column(String)
     city = Column(String)
     state = Column(String)
@@ -17,11 +17,10 @@ class Provider(Base):
 class Procedure(Base):
     __tablename__ = "procedures"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    provider_id = Column(Integer, ForeignKey("providers.id"))
+    provider_id = Column(String, ForeignKey("providers.provider_id"))  # FK to provider_id as String
     ms_drg_definition = Column(String, index=True)
     total_discharges = Column(Integer)
     average_covered_charges = Column(Float)
     average_total_payments = Column(Float)
     average_medicare_payments = Column(Float)
     provider = relationship("Provider", back_populates="procedures")
-
