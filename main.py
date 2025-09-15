@@ -7,4 +7,4 @@ from app.api import providers, ask
 app = FastAPI()
 
 app.include_router(providers.router)
-
+app.include_router(ask.router)
