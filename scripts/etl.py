@@ -7,8 +7,11 @@ import asyncio
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 from app.db.models import Base, Provider, Procedure
+from dotenv import load_dotenv
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+asyncpg://navigator:navigator@localhost:5432/navigator")
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 CSV_PATH = os.path.join(os.path.dirname(__file__), '../resources/MUP_INP_RY24_P03_V10_DY22_PrvSvc.csv')
 BATCH_SIZE = 1000
 
