@@ -1,0 +1,21 @@
+meta {
+  name: Ask Providers 2
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8000/ask
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "question": "What are the cheapest options in hospitals for heart failure?"
+  }
+}

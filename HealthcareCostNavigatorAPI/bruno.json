@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "HealthcareCostNavigatorAPI",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
