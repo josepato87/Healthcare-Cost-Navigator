@@ -45,7 +45,7 @@ async def ask(request: AskRequest):
                 return {"answer": answer}
         except Exception as db_exc:
             logging.error(f"DB error: {db_exc}", exc_info=True)
-            return {"error": f"Database error: {db_exc}"}
+            return {"error": "There was a problem processing your request. Please try again or contact support if the issue persists."}
     except Exception as exc:
         logging.error(f"OpenAI or other error: {exc}", exc_info=True)
         return {"error": f"Internal error: {exc}"}

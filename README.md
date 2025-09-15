@@ -101,3 +101,33 @@ curl 'http://localhost:8000/providers?drg=CRANIOTOMY&zip=36301&radius_km=40'
 curl -X POST 'http://localhost:8000/ask' -H 'Content-Type: application/json' -d '{"question": "Which hospitals have the lowest cost for CRANIOTOMY in 36301?"}'
 ```
 
+#### Sample Response
+```json
+{
+  "answer": [
+    {
+      "name": "Southeast Health Medical Center",
+      "city": "Dothan",
+      "state": "1108 Ross Clark Circle",
+      "zip_code": "36301",
+      "average_covered_charges": 107085.33333
+    },
+    {
+      "name": "Southeast Health Medical Center",
+      "city": "Dothan",
+      "state": "1108 Ross Clark Circle",
+      "zip_code": "36301",
+      "average_covered_charges": 156326.77778
+    },
+    {
+      "name": "Southeast Health Medical Center",
+      "city": "Dothan",
+      "state": "1108 Ross Clark Circle",
+      "zip_code": "36301",
+      "average_covered_charges": 158541.64
+    }
+  ]
+}
+```
+
+

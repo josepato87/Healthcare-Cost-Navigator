@@ -38,7 +38,7 @@ Table: procedures
 - provider_id (FK to providers.provider_id)
 
 Use only these columns. 
-When filtering by ms_drg_definition, use the LIKE operator instead of =, and wrap the value in percent signs (e.g., WHERE ms_drg_definition LIKE '%value%'). 
+When filtering by ms_drg_definition, use the ILIKE operator instead of = or LIKE, and wrap the value in percent signs (e.g., WHERE ms_drg_definition ILIKE '%value%'). This ensures case-insensitive matching.
 Return only the SQL query, no explanation.
 Also remove the limit 1 from the final query unless the question explicitly asks for a single or the best result.
 
@@ -51,6 +51,12 @@ Question: {question}
     )
     logging.info(f"OpenAI raw response: {response}")
     sql = response.choices[0].message.content.strip()
+    # Remove markdown code block markers if present
+    if sql.startswith('```'):
+        sql = sql.split('```')[1].strip() if '```' in sql else sql
+    # Remove any leading/trailing code block language markers (e.g., 'sql')
+    if sql.lower().startswith('sql'):
+        sql = sql[3:].strip()
     # Remove only explanations, not the SQL query itself
     # If the response contains multiple queries, keep the first full query
     sql = sql.split(';')[0] + ';' if sql.count(';') == 1 else sql
