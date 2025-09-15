@@ -1,5 +1,6 @@
 # Ignore Python virtual environments
 .venv/
+.python-version
 
 # Ignore environment variable files
 .env
@@ -34,3 +35,8 @@ htmlcov/
 # Log files
 *.log
 
+# Docker overrides
+docker-compose.override.yml
+
+# Other
+resources
